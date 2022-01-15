@@ -1,0 +1,19 @@
+{
+  "name": "simulator",
+  "version": "1.0.0",
+  "description": "Simulator to receive the route and send the positions",
+  "main": "index.ts",
+  "author": "Mayderson",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development ts-node-dev --exit-child --inspect --transpile-only --ignore-watch node_modules --respawn src/index.ts"
+  },
+  "dependencies": {
+    "kafkajs": "^1.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  }
+}
