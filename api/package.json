@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Consume positions topic and send to client via WebSocket",
+  "main": "server.ts",
+  "author": "Mayderson",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "NODE_ENV=development ts-node-dev --exit-child --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^12.0.3",
+    "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
+    "kafkajs": "^1.15.0",
+    "mongoose": "^6.1.6",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^17.0.8",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  }
+}
