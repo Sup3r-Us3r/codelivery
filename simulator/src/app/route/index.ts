@@ -13,7 +13,7 @@ export type RouteInputData = {
 }
 
 type RouteResponseData = RouteInputData & {
-  positions: Position;
+  position: Position;
   finished: boolean;
 }
 
@@ -63,7 +63,7 @@ function exportJsonPositions(
     .map((position: Position, index) => ({
       routeId: route.routeId,
       clientId: route.clientId,
-      positions: {
+      position: {
         latitude: Number(position.latitude),
         longitude: Number(position.longitude),
       },
