@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import '../../../shared/infra/mongodb';
-import '../kafka/consumers';
 
 import 'express-async-errors';
 import express, { Request, Response, NextFunction } from 'express';
