@@ -1,8 +1,7 @@
-import { createTheme } from '@material-ui/core/styles'
-import { PaletteOptions } from '@material-ui/core/styles/createPalette';
+import { createTheme } from '@mui/material/styles'
+import { PaletteOptions } from '@mui/material/styles/createPalette';
 
 const palette: PaletteOptions = {
-  type: 'dark',
   primary: {
     main: '#FFCD00',
     contrastText: '#242526',

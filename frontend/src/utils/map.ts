@@ -68,7 +68,7 @@ export class Map {
 
   // Method to move the marker for each given latitude and longitude
   moveCurrentMarker(routeId: string, position: google.maps.ReadonlyLatLngLiteral) {
-    this.routes[routeId].currentMarker.setPosition(position);
+    this.routes[routeId]?.currentMarker?.setPosition(position);
   }
 
   // Method to remove route that was inserted

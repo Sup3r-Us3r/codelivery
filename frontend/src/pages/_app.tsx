@@ -1,17 +1,17 @@
 import { AppProps } from 'next/app'
-import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { SnackbarProvider } from 'notistack';
 
 import { theme } from '../../styles/theme';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <SnackbarProvider maxSnack={3}>
         <CssBaseline />
         <Component {...pageProps} />
       </SnackbarProvider>
-    </MuiThemeProvider>
+    </ThemeProvider>
   );
 }
 
