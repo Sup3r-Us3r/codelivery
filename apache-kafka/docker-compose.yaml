@@ -52,7 +52,7 @@ services:
       - "host.docker.internal:172.17.0.1"
 
   kafka-connect:
-    image: confluentinc/cp-kafka-connect-base:6.0.0
+    image: confluentinc/cp-kafka-connect-base:latest
     container_name: kafka-connect
     depends_on:
       - zookeeper
@@ -93,7 +93,7 @@ services:
       - -c
       - |
         echo "Installing Connector"
-        confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:10.0.1
+        confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:11.1.7
         #
         echo "Launching Kafka Connect worker"
         /etc/confluent/docker/run &
@@ -103,11 +103,12 @@ services:
       - "host.docker.internal:172.17.0.1"
 
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.3
     container_name: es01
     environment:
       - node.name=es01
       - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01
       - cluster.initial_master_nodes=es01
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -123,7 +124,7 @@ services:
       - "host.docker.internal:172.17.0.1"
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.11.2
+    image: docker.elastic.co/kibana/kibana:7.16.3
     container_name: kib01
     ports:
       - 5601:5601
