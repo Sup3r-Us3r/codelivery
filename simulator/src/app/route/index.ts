@@ -3,8 +3,8 @@ import { resolve as pathResolve } from 'path';
 import readline from 'readline';
 
 type Position = {
-  latitude: number;
-  longitude: number;
+  lat: number;
+  lon: number;
 }
 
 export type RouteInputData = {
@@ -17,10 +17,10 @@ type RouteResponseData = RouteInputData & {
   finished: boolean;
 }
 
-// loadRoutePositionsFromFile loads from a .txt file all positions (lat and long) and returns them
+// loadRoutePositionsFromFile loads from a .txt file all positions (lat and lon) and returns them
 function loadRoutePositionsFromFile(routeId: string): Promise<Position[]> {
   return new Promise<Position[]>((resolve, reject) => {
-    const positionPath = pathResolve(
+    const destinationsPath = pathResolve(
       __dirname,
       '..',
       '..',
@@ -29,12 +29,12 @@ function loadRoutePositionsFromFile(routeId: string): Promise<Position[]> {
       `${routeId}.txt`,
     );
 
-    if (!positionPath) {
+    if (!destinationsPath) {
       reject('Invalid route id');
     }
 
     const readlineInterface = readline.createInterface({
-      input: fs.createReadStream(positionPath),
+      input: fs.createReadStream(destinationsPath),
     });
 
     const positions: Position[] = [];
@@ -43,8 +43,8 @@ function loadRoutePositionsFromFile(routeId: string): Promise<Position[]> {
       const [latitude, longitude] = currentLine.split(',');
 
       positions.push({
-        latitude: Number(latitude),
-        longitude: Number(longitude),
+        lat: Number(latitude),
+        lon: Number(longitude),
       });
     });
 
@@ -64,8 +64,8 @@ function exportJsonPositions(
       routeId: route.routeId,
       clientId: route.clientId,
       position: {
-        latitude: Number(position.latitude),
-        longitude: Number(position.longitude),
+        lat: Number(position.lat),
+        lon: Number(position.lon),
       },
       finished: positions.length - 1 === index
     }));

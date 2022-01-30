@@ -2,14 +2,21 @@ import { AppError } from '../../../error/AppError';
 import { consumer } from '../consumer';
 import { io } from '../../websocket/socketio';
 
-export type PositionResponse = {
+type PositionResponse = {
   routeId: string;
   clientId: string;
+  position: {
+    lat: number;
+    lon: number;
+  };
+  finished: boolean;
+}
+
+type SendPosition = Omit<PositionResponse, 'position'> & {
   position: {
     latitude: number;
     longitude: number;
   };
-  finished: boolean;
 }
 
 (async () => {
@@ -29,8 +36,15 @@ export type PositionResponse = {
         if (topic === 'route.new-position' && message.value) {
           try {
             const messageValue = JSON.parse(String(message.value)) as PositionResponse;
+            const sendPositionValue: SendPosition = {
+              ...messageValue,
+              position: {
+                latitude: messageValue.position.lat,
+                longitude: messageValue.position.lon,
+              }
+            };
 
-            io.emit('route.new-position', messageValue);
+            io.emit('route.new-position', sendPositionValue);
 
             console.log(messageValue);
           } catch {
