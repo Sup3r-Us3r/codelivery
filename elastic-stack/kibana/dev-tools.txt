@@ -1,0 +1,73 @@
+PUT route.new-direction
+{
+  "mappings": {
+    "properties": {
+      "clientId": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "routeId": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "timestamp": {
+        "type": "date"
+      }
+    }  
+  }
+}
+
+PUT route.new-position
+{
+  "mappings": {
+    "properties": {
+      "clientId": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "routeId": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "position": {
+        "type": "geo_point"
+      },
+      "finished": {
+        "type": "boolean"
+      },
+      "timestamp": {
+        "type": "date"
+      }
+    }  
+  }
+}
+
+POST route.new-direction/_delete_by_query?conflicts=proceed
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST route.new-position/_delete_by_query?conflicts=proceed
+{
+  "query": {
+    "match_all": {}
+  }
+}

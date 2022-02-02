@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -f ".env" ]; then
+if [ ! -f ".env.local" ]; then
   cp .env.local.example .env.local
 fi
 
