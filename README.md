@@ -127,7 +127,7 @@ $ docker-compose up -d
 O ambiente do Elasticsearch irá subir o próprio **Elasticsearch** e também o **Kibana**.
 
 ```bash
-$ cd elasticsearch
+$ cd elastic-stack
 $ docker-compose up -d
 ```
 
@@ -135,7 +135,7 @@ $ docker-compose up -d
 
 ### API
 
-O ambiente da API irá subir o Node.js para iniciar o servidor, MongoDB e Mongo Express.
+O ambiente da API irá subir o **Node.js** para iniciar o servidor, **MongoDB** e **Mongo Express**.
 
 ```bash
 $ cd api
@@ -231,9 +231,9 @@ Se tudo der certo, o conector irá ficar **Running**
 **1º** Acesse o Kibana pelo endereço: http://localhost:5601
   - 1.1 - Clique em **Explore on my own**
 
-**2º** Expanda o menu lateral, e acesse: `Management` -> `Dev Tools`
+**2º** Expanda o menu lateral, e acesse: `Management` → `Dev Tools`
 
-Cole esse mapping abaixo, para o tópico **route.new-direction** e clique em um botão verde para executar essa requisição:
+Cole esse mapping abaixo, para o tópico `route.new-direction` e clique em um botão verde para executar essa requisição:
 
 ```yaml
 PUT route.new-direction
@@ -264,7 +264,7 @@ PUT route.new-direction
 }
 ```
 
-Agora faça o mesmo para o tópico **route.new-position** com o mapping abaixo:
+Agora faça o mesmo para o tópico `route.new-position` com o mapping abaixo:
 
 ```yaml
 PUT route.new-position
@@ -305,7 +305,7 @@ Se retornar o status 200 - OK então a requisição foi efetuada com sucesso.
 
 ### Criando Index Patterns
 
-**1º** No Kibana expanda o menu lateral, e acesse: `Management` -> `Stack Management`
+**1º** No Kibana expanda o menu lateral, e acesse: `Management` → `Stack Management`
   - 1.1 - Na sessão do Kibana clique em **Index Patterns**
 
 **2º** Clique em **Create index pattern**
@@ -318,5 +318,5 @@ Após isso basta clicar em **Create index pattern**
 
 ### Considerações finais
 
-Bom nesse momento você está com tudo configurado corretamente, agora basta explorar os recursos do Kibana, você pode expandir o menu lateral acessar a sessão de `Analytics` -> `Discover`, pode também criar visualizações em `Analytics` -> `Visualize Library` etc.
+Bom nesse momento você está com tudo configurado corretamente, agora basta explorar os recursos do Kibana, você pode expandir o menu lateral acessar a sessão de `Analytics` → `Discover`, pode também criar visualizações em `Analytics` → `Visualize Library` etc.
 </details>
