@@ -24,7 +24,7 @@ export class Route {
       },
     });
     this.directionsRenderer.setMap(
-      this.directionsRenderer.getMap() as google.maps.Map,
+      this.currentMarker.getMap() as google.maps.Map
     );
 
     this.calculateRoute();
