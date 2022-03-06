@@ -4,6 +4,8 @@
 
 Essa aplicação simula o trajeto de uma entrega que vai do ponto A para um ponto B, e para essa simulação funcionar a comunicação é feita em tempo real, após iniciar uma corrida o Frontend da aplicação envia a rota que deseja obter o percurso para a API, e essa API solicita as posições para um Microserviço, esse Microserviço processa cada posição que será preciso para completar o percurso, e envia para a API de 500 em 500ms e essa API envia essa posição para o Frontend, com isso é possível ver o carro que iniciou a entrega se mover, devido a posição que foi enviada.
 
+https://user-images.githubusercontent.com/22561893/156941609-0b9057e7-2204-475d-bc26-c6e0e9718462.mp4
+
 ## :rocket: Tecnologias
 
 - [x] [Node.js](https://nodejs.org)
@@ -139,6 +141,15 @@ O ambiente da API irá subir o **Node.js** para iniciar o servidor, **MongoDB** 
 
 ```bash
 $ cd api
+$ docker-compose up -d
+```
+
+### Microserviço
+
+O ambiente do Microserviço irá subir somente o **Node.js**.
+
+```bash
+$ cd simulator
 $ docker-compose up -d
 ```
 
